@@ -1,0 +1,9 @@
+node_modules
+.next
+next-env.d.ts
+*.tsbuildinfo
+
+# local secrets (default account passwords) and the SQLite database
+.env*
+!.env.example
+/data/

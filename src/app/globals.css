@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand tokens */
+  --brand-teal: #00526B;
+  --brand-navy: #095180;
+  --brand-blue: #1F70C1;
+  --brand-blue-light: #2484C7;
+  --brand-blue-deep: #066FA3;
+  --brand-accent: #0C98F7;
+  --text: #212529;
+  --text-muted: #646568;
+  --bg: #FFFFFF;
+  --brand-gradient: linear-gradient(90deg, #2484C7 0%, #1F70C1 55%, #066FA3 100%);
+
+  /* Surface tokens (shadcn naming, mapped onto the brand) */
+  --background: #F1F5F9;
+  --foreground: var(--text);
+  --card: var(--bg);
+  --card-foreground: var(--text);
+  --popover: var(--bg);
+  --popover-foreground: var(--text);
+  --primary: var(--brand-blue);
+  --primary-foreground: #FFFFFF;
+  --muted: #EEF2F7;
+  --muted-foreground: var(--text-muted);
+  --accent: #E8F1FA;
+  --accent-foreground: var(--brand-navy);
+  --border: #E0E6ED;
+  --input: #D3DBE5;
+  --ring: var(--brand-accent);
+
+  /* Sidebar: dark navy derived from --brand-navy */
+  --sidebar: #062B40;
+  --sidebar-foreground: #C9D8E3;
+  --sidebar-muted: #7F9BAE;
+  --sidebar-border: rgb(255 255 255 / 0.08);
+  --sidebar-accent: rgb(255 255 255 / 0.08);
+
+  /* Chart palette: sequential brand ramp (dark to light) so adjacent series stay distinguishable */
+  --chart-1: var(--brand-navy);
+  --chart-2: var(--brand-blue);
+  --chart-3: var(--brand-accent);
+  --chart-4: #5AB2EF;
+  --chart-5: #9DCDF2;
+  --chart-6: #C9E2F5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-brand-teal: var(--brand-teal);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-light: var(--brand-blue-light);
+  --color-brand-blue-deep: var(--brand-blue-deep);
+  --color-brand-accent: var(--brand-accent);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent: var(--sidebar-accent);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@utility bg-brand-gradient {
+  background-image: var(--brand-gradient);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
